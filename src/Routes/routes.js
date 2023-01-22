@@ -1,3 +1,4 @@
+import Home from "../Components/Home/Home";
 import About from "../Components/Pages/About/About";
 import Blog from "../Components/Pages/Blog/Blog";
 import Events from "../Components/Pages/Events/Events";
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         element: <Main></Main>,
         children: [
+            {
+                path: "/",
+                element: <Home></Home>
+            },
             {
                 path: "/about",
                 element: <About></About>
