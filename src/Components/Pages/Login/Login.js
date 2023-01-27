@@ -2,10 +2,12 @@ import React from "react";
 import { Icon } from "@iconify/react";
 // import password from "../../../assets/lock-icon.png";
 import { Link } from "react-router-dom";
+import "./Login.css";
+
 const Login = () => {
   return (
     <div
-      className="py-40"
+      className=" login py-40  from"
       //   style={{ background: `url(${backgroundImage})`, objectFit: "cover" }}
     >
       <div
@@ -34,9 +36,10 @@ const Login = () => {
               />
             </span>
             <input
-              type="number"
-              placeholder="Enter Your Phone...."
+              type="text"
+              placeholder="Enter Your Email...."
               className="w-full p-2 focus:outline-none"
+              required
             />
           </div>
           {/* <p className="text-xs font-bold text-[#ff0000]">
@@ -73,21 +76,21 @@ const Login = () => {
             <p className="text-[#000] text-xs md:text-sm">
               Don't have an account ?
             </p>
-            <Link
-              to={"/registration"}
-              className="text-primary text-xs md:text-sm"
-            >
-              Create account
+            <Link to={"/signup"} className="text-primary text-xs md:text-sm">
+              Sign Up
             </Link>
           </div>
-          <div>
-            <Link
-              to={"/forgot"}
-              className="text-primary text-xs md:text-sm font-bold"
-            >
-              Forgot Password?
-            </Link>
-          </div>
+        </div>
+        <div>
+          <p className="text-sm mt-5">
+            To continue as an Organization , please register your account to
+          </p>
+          <Link
+            to="/signup-organization"
+            className="text-primary text-sm font-bold "
+          >
+            Sign-up as an Organization
+          </Link>
         </div>
       </div>
     </div>
