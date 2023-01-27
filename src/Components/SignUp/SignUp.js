@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import React from "react";
 
 const SignUp = () => {
@@ -6,7 +6,9 @@ const SignUp = () => {
     <div className=" w-[80%]  mx-auto py-36 lg:ml-[250px] lg:">
       <h1 className="text-primary text-2xl font-bold">Give your Information</h1>
 
-      <div className=" flex w-full items-center gap-4 mt-5"></div>
+      <div className="w-[72%]">
+        <Divider></Divider>
+      </div>
       {/* //AccountInformation */}
       <div className="my-10">
         <div className="md:grid md:grid-cols-7 md:grid-flow-row-dense mb-2">
