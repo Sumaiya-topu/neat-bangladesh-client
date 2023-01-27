@@ -32,18 +32,16 @@ export default function AuthUser() {
   const [token, setToken] = useState(getToken());
   const [user, setUser] = useState(getUser());
   const [userRole, setUserRole] = useState(getUserRole());
-  const [phone, setPhone] = useState(getUser());
+  const [email, setEmail] = useState(getUser());
   const [userInfo, setUserInfo] = useState(getUserInfo());
 
   // console.log("userRole", userRole);
 
-  const saveToken = (phone, access, role, userInfo) => {
+  const saveToken = (email, access) => {
     localStorage.setItem("access", JSON.stringify(access));
-    localStorage.setItem("phone", JSON.stringify(phone));
-    localStorage.setItem("role", JSON.stringify(role));
-    localStorage.setItem("user_info", JSON.stringify(userInfo));
+    localStorage.setItem("email", JSON.stringify(email));
 
-    setPhone(phone);
+    setEmail(email);
     setToken(token);
     setUserInfo(userInfo);
     setUser(user);
@@ -70,7 +68,7 @@ export default function AuthUser() {
     userRole,
     getToken,
     http,
-    phone,
+    email,
     getUserInfo,
     userInfo,
     logout,

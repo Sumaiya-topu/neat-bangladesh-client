@@ -40,7 +40,7 @@ const Login = () => {
         });
         console.log(res.data.access);
 
-        setToken(res.data.access);
+        setToken(data.email, res.data.access);
         setLoading(false);
       })
       .catch((err) => {
