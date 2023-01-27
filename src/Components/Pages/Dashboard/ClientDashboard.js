@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import profile from "../../../assets/avatar.jpg";
 import vector from "../../../assets/Vector.png";
+import { Link } from "react-router-dom";
 
 export default function ClientDashboard() {
   const tableTitle = [
@@ -34,6 +35,13 @@ export default function ClientDashboard() {
             Email Address : name@mail.com
           </p>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <Link to="/request-pickup" className=" mt-5">
+          <button className=" bg-primary text-white py-2 px-10 ">
+            Request Form
+          </button>
+        </Link>
       </div>
       <div className="mt-20">
         <h1 className="text-xl font-bold mb-5">Requested List</h1>
