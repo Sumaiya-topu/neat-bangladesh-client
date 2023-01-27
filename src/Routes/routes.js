@@ -10,6 +10,7 @@ import Programs from "../Components/Pages/Programs/Programs";
 import RequestForm from "../Components/ServiceRequest/RequestForm";
 import ErrorPage from "../Components/Shared/ErrorPage/ErrorPage";
 import SignUp from "../Components/SignUp/SignUp";
+import OrgDashboard from "../Components/Dashboard/OrgDashboard"
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
@@ -61,8 +62,8 @@ export const router = createBrowserRouter([
         element: <ClientDashboard></ClientDashboard>,
       },
       {
-        path: "/dashboard",
-        element: <Dashboard></Dashboard> ,
+        path: "/dashboard/org",
+        element: <OrgDashboard></OrgDashboard> ,
       },
     ],
   },
