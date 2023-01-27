@@ -87,12 +87,15 @@ const SignUp = () => {
             <span className="text-red">This field is required</span>
           )}
         </div>
+        <div className="flex justify-center w-full">
+
         <button
           type="submit"
           className="bg-primary text-white font-bold py-2 px-10 rounded-md"
         >
           Sign Up
         </button>
+        </div>
       </form>
     </div>
   );

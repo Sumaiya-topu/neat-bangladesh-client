@@ -2,6 +2,7 @@ import Home from "../Components/Home/Home";
 import OrganizationSignUp from "../Components/OrganizationSignUp/OrganizationSignUp";
 import About from "../Components/Pages/About/About";
 import Blog from "../Components/Pages/Blog/Blog";
+import ClientDashboard from "../Components/Pages/Dashboard/ClientDashboard";
 import Dashboard from "../Components/Pages/Dashboard/Dashboard";
 import Events from "../Components/Pages/Events/Events";
 import Login from "../Components/Pages/Login/Login";
@@ -54,6 +55,14 @@ export const router = createBrowserRouter([
       {
         path: "/request-pickup",
         element: <RequestForm></RequestForm>,
+      },
+      {
+        path: "/dashboard/client",
+        element: <ClientDashboard></ClientDashboard>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard> ,
       },
     ],
   },
