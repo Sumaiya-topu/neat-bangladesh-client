@@ -1,18 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 // import password from "../../../assets/lock-icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useForm } from "react-hook-form";
+import AuthUser from "../../../Hooks/AuthUser";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+  const { http, setToken, getToken } = AuthUser();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
+    reset,
   } = useForm();
-  const onSubmit = (data) => console.log(data.email, data.password);
+
+  if (getToken()) {
+    return navigate("/dashboard");
+  }
+
+  const handleLogin = async (data) => {
+    console.log(data.email, data.password);
+    setLoading(true);
+    http
+      .post("account/login/", {
+        email: data.email,
+        password: data.password,
+      })
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: "Successfully Login",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        console.log(res.data.access);
+
+        setToken(res.data.access);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        // toast.error("Login Failed");
+        if (err.message) {
+          Swal.fire({
+            icon: "error",
+            title: "Failed...",
+            text: "Email or Password Wrong! ",
+          });
+        }
+      });
+    reset();
+  };
 
   return (
     <div
@@ -34,7 +77,7 @@ const Login = () => {
           /> */}
           <h4 className="text-[38px] text-accent font-bold">Login</h4>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 grid gap-3">
+        <form onSubmit={handleSubmit(handleLogin)} className="mt-12 grid gap-3">
           <div className="flex gap-1 items-center border-2 rounded-md p-2 border-[#B9B9B9]">
             <span>
               <Icon

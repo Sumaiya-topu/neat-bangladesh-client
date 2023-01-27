@@ -42,11 +42,11 @@ const SignUp = () => {
           Swal.fire({
             icon: "success",
             title:
-              "Successfully created Account, check your gmail for verification",
+              "Successfully created Account, please login after some moment",
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/dashboard");
+          navigate("/login");
         } else {
           if (data.error?.includes("duplicate key error")) {
             return Swal.fire({

@@ -12,7 +12,7 @@ export default function AuthUser() {
   };
 
   const getUser = () => {
-    const userString = localStorage.getItem("phone");
+    const userString = localStorage.getItem("email");
     const user_detail = JSON.parse(userString);
     return user_detail;
   };
@@ -25,6 +25,7 @@ export default function AuthUser() {
   const getUserInfo = () => {
     const userInfoString = localStorage.getItem("user_info");
     const user_info = JSON.parse(userInfoString);
+    console.log(user_info);
     return user_info;
   };
 
@@ -56,7 +57,7 @@ export default function AuthUser() {
   };
 
   const http = axios.create({
-    baseURL: "http://localhost:5000/api/v1",
+    baseURL: "http://143.110.248.164:8000/api/v1/",
     headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${token}`,
