@@ -6,6 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import profile from "../../../assets/avatar.jpg";
+import vector from "../../../assets/Vector.png";
 
 export default function ClientDashboard() {
   const tableTitle = [
@@ -19,17 +21,39 @@ export default function ClientDashboard() {
     "Action",
   ];
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            {tableTitle.map((title) => (
-              <TableCell>{title}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody></TableBody>
-      </Table>
-    </TableContainer>
+    <div>
+      <div className="flex justify-center">
+        <div>
+          <img className="w-40 mx-auto" src={profile} alt="" />
+          <p className="font-bold text-xl text-center mt-5">
+            {" "}
+            User name : WednesDay Adams{" "}
+            <img className="inline" src={vector} alt="" />
+          </p>
+          <p className="text-xs font-semibold text-gray text-center">
+            Email Address : name@mail.com
+          </p>
+        </div>
+      </div>
+      <div className="mt-20">
+        <h1 className="text-xl font-bold mb-5">Requested List</h1>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                {tableTitle.map((title) => (
+                  <TableCell>{title}</TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody></TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+
+      <div>
+        <h1></h1>
+      </div>
+    </div>
   );
 }
