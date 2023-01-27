@@ -2,9 +2,11 @@ import Home from "../Components/Home/Home";
 import OrganizationSignUp from "../Components/OrganizationSignUp/OrganizationSignUp";
 import About from "../Components/Pages/About/About";
 import Blog from "../Components/Pages/Blog/Blog";
+import Dashboard from "../Components/Pages/Dashboard/Dashboard";
 import Events from "../Components/Pages/Events/Events";
 import Login from "../Components/Pages/Login/Login";
 import Programs from "../Components/Pages/Programs/Programs";
+import RequestForm from "../Components/ServiceRequest/RequestForm";
 import ErrorPage from "../Components/Shared/ErrorPage/ErrorPage";
 import SignUp from "../Components/SignUp/SignUp";
 
@@ -49,6 +51,14 @@ export const router = createBrowserRouter([
         path: "/signup-organization",
         element: <OrganizationSignUp></OrganizationSignUp>,
       },
+      {
+        path: "/request-pickup",
+        element: <RequestForm></RequestForm>,
+      },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
   },
 ]);

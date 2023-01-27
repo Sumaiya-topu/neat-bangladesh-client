@@ -3,8 +3,17 @@ import { Icon } from "@iconify/react";
 // import password from "../../../assets/lock-icon.png";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data.email, data.password);
+
   return (
     <div
       className=" login py-40  from"
@@ -25,7 +34,7 @@ const Login = () => {
           /> */}
           <h4 className="text-[38px] text-accent font-bold">Login</h4>
         </div>
-        <form className="mt-12 grid gap-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 grid gap-3">
           <div className="flex gap-1 items-center border-2 rounded-md p-2 border-[#B9B9B9]">
             <span>
               <Icon
@@ -36,12 +45,16 @@ const Login = () => {
               />
             </span>
             <input
+              {...register("email", { required: true })}
               type="text"
               placeholder="Enter Your Email...."
               className="w-full p-2 focus:outline-none"
               required
             />
           </div>
+          {errors.email && (
+            <span className="text-red">This field is required</span>
+          )}
           {/* <p className="text-xs font-bold text-[#ff0000]">
             {errors.phone && <span>This field is required</span>}
           </p> */}
@@ -58,8 +71,11 @@ const Login = () => {
               type={"password"}
               placeholder="Enter your password...."
               className="w-full p-2 focus:outline-none"
-              //   {...register("password", { required: true })}
+              {...register("password", { required: true })}
             />
+            {errors.password && (
+              <span className="text-red">Enter valid password</span>
+            )}
           </div>
           <p className="text-xs font-bold text-[#ff0000]">
             {/* {errors.password && <span>This field is required</span>} */}
